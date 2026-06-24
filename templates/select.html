@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}选课管理{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="section-title">
+    <h1>选课管理</h1>
+  </div>
+  <form method="post" class="form-grid">
+    <select name="student_id" required>
+      {% for item in students %}
+      <option value="{{ item.student_id }}">{{ item.student_id }} {{ item.student_name }}</option>
+      {% endfor %}
+    </select>
+    <select name="task_id" required>
+      {% for item in tasks %}
+      <option value="{{ item.task_id }}">{{ item.label }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">提交选课</button>
+  </form>
+</section>
+
+<section class="panel">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>学生</th>
+        <th>课程</th>
+        <th>教师</th>
+        <th>学期</th>
+        <th>时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.enroll_id }}</td>
+        <td>{{ row.student_name }}</td>
+        <td>{{ row.course_name }}</td>
+        <td>{{ row.teacher_name }}</td>
+        <td>{{ row.term_name }}</td>
+        <td>周{{ row.weekday }} 第{{ row.start_section }}-{{ row.end_section }}节</td>
+        <td><span class="tag">{{ row.status }}</span></td>
+        <td>
+          {% if row.status == '已选' %}
+          <form method="post" action="{{ url_for('drop_course', enroll_id=row.enroll_id) }}">
+            <button class="small danger" type="submit">退课</button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

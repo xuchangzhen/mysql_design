@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}系统提示{% endblock %}
+{% block content %}
+<section class="panel error-panel">
+  <h1>操作失败</h1>
+  <p>{{ error }}</p>
+  <a class="button-link" href="{{ request.referrer or url_for('index') }}">返回上一页</a>
+</section>
+{% endblock %}

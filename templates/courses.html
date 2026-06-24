@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}课程管理{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="section-title">
+    <h1>课程管理</h1>
+  </div>
+  <form method="post" class="form-grid">
+    <input name="course_id" placeholder="课程编号" required>
+    <input name="course_name" placeholder="课程名称" required>
+    <select name="dept_id" required>
+      {% for item in departments %}
+      <option value="{{ item.dept_id }}">{{ item.dept_name }}</option>
+      {% endfor %}
+    </select>
+    <input name="credit" type="number" min="0.5" step="0.5" placeholder="学分" required>
+    <input name="hours" type="number" min="1" placeholder="学时" required>
+    <button type="submit">添加课程</button>
+  </form>
+</section>
+
+<section class="panel">
+  <table>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>课程名称</th>
+        <th>学院</th>
+        <th>学分</th>
+        <th>学时</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.course_id }}</td>
+        <td>{{ row.course_name }}</td>
+        <td>{{ row.dept_name }}</td>
+        <td>{{ row.credit }}</td>
+        <td>{{ row.hours }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}成绩管理{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="section-title">
+    <h1>成绩管理</h1>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>学生</th>
+        <th>课程</th>
+        <th>教师</th>
+        <th>平时</th>
+        <th>考试</th>
+        <th>总评</th>
+        <th>绩点</th>
+        <th>录入</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.enroll_id }}</td>
+        <td>{{ row.student_name }}</td>
+        <td>{{ row.course_name }}</td>
+        <td>{{ row.teacher_name }}</td>
+        <td>{{ row.usual_score or '' }}</td>
+        <td>{{ row.exam_score or '' }}</td>
+        <td>{{ row.total_score or '' }}</td>
+        <td>{{ row.grade_point or '' }}</td>
+        <td>
+          <form method="post" class="inline-form">
+            <input type="hidden" name="enroll_id" value="{{ row.enroll_id }}">
+            <input name="usual_score" type="number" min="0" max="100" step="0.5" placeholder="平时" required>
+            <input name="exam_score" type="number" min="0" max="100" step="0.5" placeholder="考试" required>
+            <button class="small" type="submit">保存</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}首页 - 学生选课管理系统{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>学生选课管理系统</h1>
+    <p>用于课程设计的 Flask + MySQL 示例项目，覆盖学生信息、课程信息、开课安排、选课退课和成绩管理。</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div><strong>{{ stats.students }}</strong><span>学生</span></div>
+  <div><strong>{{ stats.courses }}</strong><span>课程</span></div>
+  <div><strong>{{ stats.tasks }}</strong><span>开课任务</span></div>
+  <div><strong>{{ stats.enrollments }}</strong><span>当前选课</span></div>
+</section>
+
+<section class="panel">
+  <div class="section-title">
+    <h2>最近选课记录</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>时间</th>
+        <th>学生</th>
+        <th>课程</th>
+        <th>教师</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in recent %}
+      <tr>
+        <td>{{ item.select_time }}</td>
+        <td>{{ item.student_name }}</td>
+        <td>{{ item.course_name }}</td>
+        <td>{{ item.teacher_name }}</td>
+        <td><span class="tag">{{ item.status }}</span></td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="empty">暂无记录</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

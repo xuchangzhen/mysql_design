@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}通知管理{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="section-title">
+    <h1>通知管理</h1>
+  </div>
+  <form method="post" class="form-grid notice-form">
+    <input name="title" placeholder="标题" required>
+    <input name="publisher" placeholder="发布人">
+    <textarea name="content" placeholder="通知内容" required></textarea>
+    <button type="submit">发布通知</button>
+  </form>
+</section>
+
+<section class="notice-list">
+  {% for row in rows %}
+  <article class="notice">
+    <div>
+      <h2>{{ row.title }}</h2>
+      <time>{{ row.publish_time }}</time>
+    </div>
+    <p>{{ row.content }}</p>
+    <span>{{ row.publisher }}</span>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

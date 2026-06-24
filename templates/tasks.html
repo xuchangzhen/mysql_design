@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}开课管理{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="section-title">
+    <h1>开课管理</h1>
+  </div>
+  <form method="post" class="form-grid">
+    <select name="course_id" required>
+      {% for item in options.courses %}
+      <option value="{{ item.course_id }}">{{ item.course_name }}</option>
+      {% endfor %}
+    </select>
+    <select name="teacher_id" required>
+      {% for item in options.teachers %}
+      <option value="{{ item.teacher_id }}">{{ item.teacher_name }}</option>
+      {% endfor %}
+    </select>
+    <select name="term_id" required>
+      {% for item in options.terms %}
+      <option value="{{ item.term_id }}">{{ item.term_name }}</option>
+      {% endfor %}
+    </select>
+    <select name="room_id" required>
+      {% for item in options.rooms %}
+      <option value="{{ item.room_id }}">{{ item.label }}</option>
+      {% endfor %}
+    </select>
+    <input name="weekday" type="number" min="1" max="7" placeholder="星期" required>
+    <input name="start_section" type="number" min="1" max="12" placeholder="开始节次" required>
+    <input name="end_section" type="number" min="1" max="12" placeholder="结束节次" required>
+    <input name="max_students" type="number" min="1" placeholder="容量" required>
+    <button type="submit">添加开课</button>
+  </form>
+</section>
+
+<section class="panel">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>课程</th>
+        <th>教师</th>
+        <th>学期</th>
+        <th>教室</th>
+        <th>时间</th>
+        <th>人数</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.task_id }}</td>
+        <td>{{ row.course_name }}</td>
+        <td>{{ row.teacher_name }}</td>
+        <td>{{ row.term_name }}</td>
+        <td>{{ row.room_name }}</td>
+        <td>周{{ row.weekday }} 第{{ row.start_section }}-{{ row.end_section }}节</td>
+        <td>{{ row.current_students }}/{{ row.max_students }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

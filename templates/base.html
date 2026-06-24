@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}学生选课管理系统{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}">学生选课管理系统</a>
+    <nav>
+      <a href="{{ url_for('students') }}">学生</a>
+      <a href="{{ url_for('courses') }}">课程</a>
+      <a href="{{ url_for('tasks') }}">开课</a>
+      <a href="{{ url_for('select_course') }}">选课</a>
+      <a href="{{ url_for('scores') }}">成绩</a>
+      <a href="{{ url_for('notices') }}">通知</a>
+    </nav>
+  </header>
+  <main class="page">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for message in messages %}
+            <span>{{ message }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
