@@ -13,8 +13,8 @@ create table majors (  #专业表
   major_id int primary key auto_increment,
   dept_id int not null,
   major_name varchar(80) not null,
-  unique key uk_major(dept_id, major_name),
-  constraint fk_major_dept foreign key (dept_id) references departments(dept_id)
+  unique key uk_major(dept_id, major_name),  -- 唯一联合索引，组合唯一，也就是当前学院只允许有一个名字为major_name的专业，避免一个学院存在同名课程
+  constraint fk_major_dept foreign key (dept_id) references departments(dept_id)  -- 创建外键约束 专业表和学院表通过ID关联，若学院不存在，课程将无法创建
 );
 
 create table classes (  #班级表
@@ -124,15 +124,6 @@ create table scores (
   constraint ck_score_usual check (usual_score is null or usual_score between 0 and 100),
   constraint ck_score_exam check (exam_score is null or exam_score between 0 and 100),
   constraint ck_score_total check (total_score is null or total_score between 0 and 100)
-);
-
-create table users (
-  user_id int primary key auto_increment,
-  username varchar(40) not null unique,
-  password varchar(120) not null,
-  role enum('管理员','教师','学生') not null,
-  related_id varchar(20),
-  created_at datetime not null default current_timestamp
 );
 
 create table notices (
@@ -375,10 +366,10 @@ insert into departments(dept_name) values
 ('计算机与智能教育学院'), ('数学与统计学院'), ('外国语学院');
 
 insert into majors(dept_id, major_name) values
-(1, '软件工程'), (1, '计算机科学与技术'), (2, '数学与应用数学'), (3, '英语');
+(1, '软件工程'), (1, '计算机科学与技术'), (2, '高等数学'), (1, '离散数学');
 
 insert into classes(major_id, class_name, grade_year) values
-(1, '软件工程2301班', 2023), (1, '软件工程2302班', 2023), (2, '计科2301班', 2023);
+(2, '24计科3班', 2024), (1, '24软工2班', 2024), (2, '24计科4班', 2024);
 
 insert into students(student_id, class_id, student_name, gender, phone, email) values
 ('202301001', 1, '张三', '男', '13800000001', 'zhangsan@example.com'),
@@ -389,11 +380,11 @@ insert into students(student_id, class_id, student_name, gender, phone, email) v
 -- 教学资源测试数据
 insert into teachers(teacher_id, dept_id, teacher_name, title, phone, email) values
 ('T001', 1, '陈老师', '副教授', '13900000001', 'chen@example.com'),
-('T002', 1, '刘老师', '讲师', '13900000002', 'liu@example.com'),
-('T003', 2, '黄老师', '教授', '13900000003', 'huang@example.com');
+('T002', 1, '邓老师', '讲师', '13900000002', 'deng@qq.com'),
+('T003', 2, '刘老师', '教授', '13900000003', 'liu@qq.com');
 
 insert into classrooms(building, room_no, capacity) values
-('教学楼A', '301', 60), ('教学楼A', '302', 50), ('实验楼B', '205', 45);
+('笃学楼', '201', 60), ('明达楼', '315', 120), ('集贤楼', '201', 45);
 
 insert into terms(term_name, start_date, end_date) values
 ('2025-2026学年第一学期', '2025-09-01', '2026-01-15'),
@@ -417,11 +408,6 @@ call sp_select_course('202301002', 1);
 call sp_select_course('202301003', 3);
 
 -- 徐昌真
--- 账号和通知测试数据
-insert into users(username, password, role, related_id) values
-('admin', '123456', '管理员', null),
-('202301001', '123456', '学生', '202301001'),
-('T001', '123456', '教师', 'T001');
-
+-- 公告测试
 insert into notices(title, content, publisher) values
 ('选课通知', '本学期学生选课已经开始，请在规定时间内完成选课。', '教务管理员');
