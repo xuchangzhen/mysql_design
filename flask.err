@@ -239,3 +239,9 @@ Press CTRL+C to quit
 127.0.0.1 - - [23/Jun/2026 16:13:19] "GET /tasks HTTP/1.1" 200 -
 127.0.0.1 - - [23/Jun/2026 16:13:19] "GET /static/style.css HTTP/1.1" 304 -
 127.0.0.1 - - [23/Jun/2026 16:13:19] "GET /favicon.ico HTTP/1.1" 500 -
+ * Detected change in 'F:\\web_project\\mysql_design\\tools\\fix_division_doc_headers.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "F:\web_project\mysql_design\app.py", line 5, in <module>
+    from flask import Flask, flash, redirect, render_template, request, url_for
+ModuleNotFoundError: No module named 'flask'
