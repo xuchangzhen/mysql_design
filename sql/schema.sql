@@ -26,7 +26,7 @@ create table classes (  #班级表
   constraint fk_class_major foreign key (major_id) references majors(major_id)
 );
 
-create table students (  //学生表
+create table students (  #学生表
   student_id varchar(20) primary key,
   class_id int not null,
   student_name varchar(50) not null,
