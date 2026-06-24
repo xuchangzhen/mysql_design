@@ -9,7 +9,8 @@ from pymysql.cursors import DictCursor
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "course-design-dev-key")
 
-
+# 王泽湘
+# 数据库连接配置
 DB_CONFIG = {
     "host": os.getenv("MYSQL_HOST", "127.0.0.1"),
     "port": int(os.getenv("MYSQL_PORT", "3306")),
@@ -22,6 +23,8 @@ DB_CONFIG = {
 }
 
 
+# 王泽湘
+# 数据库公共函数
 @contextmanager
 def db():
     conn = pymysql.connect(**DB_CONFIG)
@@ -53,6 +56,8 @@ def handle_error(error):
     return render_template("error.html", error=error), 500
 
 
+# 李炜
+# 首页统计功能
 @app.route("/")
 def index():
     stats = {
@@ -76,6 +81,8 @@ def index():
     return render_template("index.html", stats=stats, recent=recent)
 
 
+# 徐昌真
+# 学生管理功能
 @app.route("/students", methods=["GET", "POST"])
 def students():
     if request.method == "POST":
@@ -115,6 +122,8 @@ def students():
     return render_template("students.html", rows=rows, classes=classes)
 
 
+# 李炜
+# 课程管理功能
 @app.route("/courses", methods=["GET", "POST"])
 def courses():
     if request.method == "POST":
@@ -142,6 +151,8 @@ def courses():
     return render_template("courses.html", rows=rows, departments=departments)
 
 
+# 李炜
+# 开课管理功能
 @app.route("/tasks", methods=["GET", "POST"])
 def tasks():
     if request.method == "POST":
@@ -182,6 +193,8 @@ def tasks():
     return render_template("tasks.html", rows=rows, options=options)
 
 
+# 李炜
+# 学生选课功能
 @app.route("/select", methods=["GET", "POST"])
 def select_course():
     if request.method == "POST":
@@ -217,6 +230,8 @@ def select_course():
     return render_template("select.html", rows=rows, students=students_list, tasks=tasks_list)
 
 
+# 李炜
+# 学生退课功能
 @app.post("/drop/<int:enroll_id>")
 def drop_course(enroll_id):
     call_proc("sp_drop_course", (enroll_id,))
@@ -224,6 +239,8 @@ def drop_course(enroll_id):
     return redirect(url_for("select_course"))
 
 
+# 解世轩
+# 成绩管理功能
 @app.route("/scores", methods=["GET", "POST"])
 def scores():
     if request.method == "POST":
@@ -254,6 +271,8 @@ def scores():
     return render_template("scores.html", rows=rows)
 
 
+# 徐昌真
+# 通知管理功能
 @app.route("/notices", methods=["GET", "POST"])
 def notices():
     if request.method == "POST":

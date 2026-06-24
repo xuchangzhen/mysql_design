@@ -2,6 +2,8 @@ drop database if exists course_selection;
 create database course_selection default charset utf8mb4 collate utf8mb4_unicode_ci;
 use course_selection;
 
+-- 徐昌真
+-- 基础信息表创建
 create table departments (
   dept_id int primary key auto_increment,
   dept_name varchar(80) not null unique
@@ -37,6 +39,8 @@ create table students (
   constraint uk_student_email unique (email)
 );
 
+-- 李炜
+-- 教学资源和课程表创建
 create table teachers (
   teacher_id varchar(20) primary key,
   dept_id int not null,
@@ -96,6 +100,8 @@ create table teaching_tasks (
   constraint ck_task_count check (max_students > 0 and current_students >= 0 and current_students <= max_students)
 );
 
+-- 解世轩
+-- 选课和成绩表创建
 create table enrollments (
   enroll_id int primary key auto_increment,
   student_id varchar(20) not null,
@@ -137,6 +143,8 @@ create table notices (
   publish_time datetime not null default current_timestamp
 );
 
+-- 解世轩
+-- 操作日志表创建
 create table operation_logs (
   log_id int primary key auto_increment,
   action_type varchar(40) not null,
@@ -146,6 +154,8 @@ create table operation_logs (
 
 delimiter //
 
+-- 王泽湘
+-- 开课检查触发器
 create trigger trg_task_before_insert
 before insert on teaching_tasks
 for each row
@@ -160,6 +170,8 @@ begin
   end if;
 end//
 
+-- 王泽湘
+-- 开课修改触发器
 create trigger trg_task_before_update
 before update on teaching_tasks
 for each row
@@ -174,6 +186,8 @@ begin
   end if;
 end//
 
+-- 王泽湘
+-- 选课前检查触发器
 create trigger trg_enroll_before_insert
 before insert on enrollments
 for each row
@@ -214,6 +228,8 @@ begin
   end if;
 end//
 
+-- 王泽湘
+-- 选课后处理触发器
 create trigger trg_enroll_after_insert
 after insert on enrollments
 for each row
@@ -226,6 +242,8 @@ begin
   values('选课', concat(new.student_id, ' 选择教学任务 ', new.task_id));
 end//
 
+-- 王泽湘
+-- 退课后处理触发器
 create trigger trg_enroll_after_update
 after update on enrollments
 for each row
@@ -239,6 +257,8 @@ begin
   values('选课状态变更', concat(new.student_id, ' 的选课记录 ', new.enroll_id, ' 状态为 ', new.status));
 end//
 
+-- 王泽湘
+-- 成绩计算触发器
 create trigger trg_score_before_update
 before update on scores
 for each row
@@ -256,6 +276,8 @@ begin
   end if;
 end//
 
+-- 徐昌真
+-- 添加学生存储过程
 create procedure sp_add_student(
   in p_student_id varchar(20),
   in p_student_name varchar(50),
@@ -269,6 +291,8 @@ begin
   values(p_student_id, p_student_name, p_gender, p_class_id, p_phone, p_email);
 end//
 
+-- 徐昌真
+-- 添加课程存储过程
 create procedure sp_add_course(
   in p_course_id varchar(20),
   in p_course_name varchar(100),
@@ -281,6 +305,8 @@ begin
   values(p_course_id, p_course_name, p_dept_id, p_credit, p_hours);
 end//
 
+-- 王泽湘
+-- 开课存储过程
 create procedure sp_open_course(
   in p_course_id varchar(20),
   in p_teacher_id varchar(20),
@@ -296,6 +322,8 @@ begin
   values(p_course_id, p_teacher_id, p_term_id, p_room_id, p_weekday, p_start_section, p_end_section, p_max_students);
 end//
 
+-- 王泽湘
+-- 学生选课存储过程
 create procedure sp_select_course(
   in p_student_id varchar(20),
   in p_task_id int
@@ -304,11 +332,15 @@ begin
   insert into enrollments(student_id, task_id) values(p_student_id, p_task_id);
 end//
 
+-- 王泽湘
+-- 学生退课存储过程
 create procedure sp_drop_course(in p_enroll_id int)
 begin
   update enrollments set status = '退选' where enroll_id = p_enroll_id and status = '已选';
 end//
 
+-- 徐昌真
+-- 录入成绩存储过程
 create procedure sp_record_score(
   in p_enroll_id int,
   in p_usual_score decimal(5,2),
@@ -323,6 +355,8 @@ end//
 
 delimiter ;
 
+-- 解世轩
+-- 学生选课查询视图
 create view v_student_course as
 select s.student_id, s.student_name, cl.class_name, c.course_id, c.course_name,
        t.teacher_name, tm.term_name, e.status, sc.total_score
@@ -335,6 +369,8 @@ join teachers t on t.teacher_id=tt.teacher_id
 join terms tm on tm.term_id=tt.term_id
 left join scores sc on sc.enroll_id=e.enroll_id;
 
+-- 徐昌真
+-- 基础信息测试数据
 insert into departments(dept_name) values
 ('计算机与智能教育学院'), ('数学与统计学院'), ('外国语学院');
 
@@ -349,6 +385,8 @@ insert into students(student_id, class_id, student_name, gender, phone, email) v
 ('202301002', 1, '李四', '女', '13800000002', 'lisi@example.com'),
 ('202301003', 2, '王五', '男', '13800000003', 'wangwu@example.com');
 
+-- 李炜
+-- 教学资源测试数据
 insert into teachers(teacher_id, dept_id, teacher_name, title, phone, email) values
 ('T001', 1, '陈老师', '副教授', '13900000001', 'chen@example.com'),
 ('T002', 1, '刘老师', '讲师', '13900000002', 'liu@example.com'),
@@ -371,11 +409,15 @@ call sp_open_course('PY001', 'T002', 1, 2, 3, 3, 4, 45);
 call sp_open_course('WEB001', 'T002', 1, 3, 4, 1, 2, 40);
 call sp_open_course('MATH001', 'T003', 1, 1, 5, 5, 6, 55);
 
+-- 解世轩
+-- 选课测试数据
 call sp_select_course('202301001', 1);
 call sp_select_course('202301001', 2);
 call sp_select_course('202301002', 1);
 call sp_select_course('202301003', 3);
 
+-- 徐昌真
+-- 账号和通知测试数据
 insert into users(username, password, role, related_id) values
 ('admin', '123456', '管理员', null),
 ('202301001', '123456', '学生', '202301001'),
