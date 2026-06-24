@@ -4,12 +4,12 @@ use course_selection;
 
 -- 徐昌真
 -- 基础信息表创建
-create table departments (
+create table departments (  #学院信息
   dept_id int primary key auto_increment,
   dept_name varchar(80) not null unique
 );
 
-create table majors (
+create table majors (  #专业表
   major_id int primary key auto_increment,
   dept_id int not null,
   major_name varchar(80) not null,
@@ -17,7 +17,7 @@ create table majors (
   constraint fk_major_dept foreign key (dept_id) references departments(dept_id)
 );
 
-create table classes (
+create table classes (  #班级表
   class_id int primary key auto_increment,
   major_id int not null,
   class_name varchar(80) not null,
@@ -26,7 +26,7 @@ create table classes (
   constraint fk_class_major foreign key (major_id) references majors(major_id)
 );
 
-create table students (
+create table students (  //学生表
   student_id varchar(20) primary key,
   class_id int not null,
   student_name varchar(50) not null,

@@ -55,7 +55,7 @@ pip install -r requirements.txt
 2. 导入数据库：
 
 ```bash
-mysql -u root -p < sql/schema.sql
+cmd /c "mysql --default-character-set=utf8mb4 -u root -p < sql\schema.sql"
 ```
 
 3. 设置数据库连接信息。默认使用 `root/root` 连接本机 MySQL，可按需修改环境变量：
