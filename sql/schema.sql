@@ -102,7 +102,7 @@ create table teaching_tasks (
 
 -- 解世轩
 -- 选课和成绩表创建
-create table enrollments (
+create table enrollments (  -- 选课记录表
   enroll_id int primary key auto_increment,
   student_id varchar(20) not null,
   task_id int not null,

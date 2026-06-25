@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="第 1 页" id="v_T8j-v-4LIagLEOx2L1">
+    <mxGraphModel dx="813" dy="1211" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" background="light-dark(#FFFFFF,#FFFFFF)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-29" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-1" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-31" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-29" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);textShadow=0;" value="&lt;span style=&quot;&quot;&gt;1&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.0267" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=light-dark(#000000,#000000);fontColor=light-dark(#000000,#000000);" value="学院" vertex="1">
+          <mxGeometry height="48" width="111" x="48" y="484.25" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-25" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-11" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-32" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);fontStyle=0;" value="n" vertex="1">
+          <mxGeometry relative="1" x="-0.1276" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-11" parent="1" style="rhombus;whiteSpace=wrap;html=1;rounded=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="设置" vertex="1">
+          <mxGeometry height="68.5" width="80" x="232" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-12" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="384" y="619" as="sourcePoint" />
+            <mxPoint x="434" y="569" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-34" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-21" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-35" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-34" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);fontStyle=0;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.1435" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="专业" vertex="1">
+          <mxGeometry height="60" width="120" x="385" y="478.25" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-41" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-22" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-43" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-41" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);fontStyle=0;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.3122" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="班级" vertex="1">
+          <mxGeometry height="60" width="120" x="710" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="学生" vertex="1">
+          <mxGeometry height="60" width="120" x="1045" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-33" parent="1" style="rhombus;whiteSpace=wrap;html=1;rounded=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="设置" vertex="1">
+          <mxGeometry height="80" width="80" x="549" y="468.25" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-36" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-33" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.05;entryY=0.477;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-38" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-36" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);fontStyle=0;" value="n" vertex="1">
+          <mxGeometry relative="1" x="0.0846" y="-1" as="geometry">
+            <mxPoint x="-1" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-42" edge="1" parent="1" source="gKEl-sEdlK051-HNNvZQ-40" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=default;endArrow=none;endFill=0;" target="gKEl-sEdlK051-HNNvZQ-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-44" connectable="0" parent="gKEl-sEdlK051-HNNvZQ-42" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);labelBackgroundColor=light-dark(#FFFFFF,#FFFFFF);fontStyle=0;" value="n" vertex="1">
+          <mxGeometry relative="1" x="-0.2057" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gKEl-sEdlK051-HNNvZQ-40" parent="1" style="rhombus;whiteSpace=wrap;html=1;rounded=0;strokeColor=light-dark(#000000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=light-dark(#000000,#000000);fillColor=none;" value="包含" vertex="1">
+          <mxGeometry height="80" width="80" x="888" y="470" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

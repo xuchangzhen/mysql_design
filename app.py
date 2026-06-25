@@ -8,6 +8,7 @@ from pymysql.cursors import DictCursor
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "course-design-dev-key")
+# 导入模块和创建 Flask 应用 ↑
 
 # 王泽湘
 # 数据库连接配置
